@@ -1,555 +1,418 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Check } from 'lucide-react';
-import { COMPANY, SERVICES, PROCESS_STEPS, WHY_CHOOSE_US_POINTS } from '../constants/company';
+import { useInView } from 'framer-motion';
+import { Award, Clock, UserCheck } from 'lucide-react';
 import { images } from '../constants/images';
-import { Button } from '../components/ui/Button';
-import { GalleryGrid } from '../components/gallery/GalleryGrid';
+import heroVideo from '../assets/hero-video.mp4';
+import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
 
 export const Home: React.FC = () => {
-  const galleryPreviewImages = [
-    { src: images.image1, alt: "Architectural framing site", category: "Framing", caption: "Precision timber framing lockup" },
-    { src: images.image5, alt: "ICF Foundation wall setup", category: "Foundations", caption: "ICF concrete installation BC" },
-    { src: images.image8, alt: "Custom residential structure", category: "Custom Home", caption: "Multi-story residential framing" },
-  ];
+  // Progress loaders view triggers
+  const progressRef = useRef(null);
+  const isProgressInView = useInView(progressRef, { once: true, margin: "-100px" });
 
   return (
-    <div className="w-full bg-background text-primary">
+    <div className="w-full bg-white text-[#111111] pt-[80px]">
       
-      {/* 1. PORTRAIT EDITORIAL HERO (Blueprint Grid Background) */}
-      <section className="relative min-h-[95vh] pt-[120px] pb-16 flex items-center justify-center bg-blueprint-grid border-b border-accent/15">
+      {/* II. THE HOMEPAGE HERO HEROIC BLOCK */}
+      <section className="relative w-full h-[90vh] bg-black overflow-hidden flex items-center">
         
-        {/* Layout framing guides */}
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/10 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/10 pointer-events-none hidden xl:block" />
+        {/* The HTML5 Video Stream Layer */}
+        <div className="hero-video-wrapper absolute top-0 left-0 w-full h-full z-[1]">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-100"
+            poster={images.image12}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
 
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative">
-          
-          {/* Hero Left Content (55% width, typographic focus) */}
-          <div className="lg:col-span-7 flex flex-col justify-center gap-8 reveal-up z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-accent rounded-full animate-ping" />
-              <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                {COMPANY.shortName} // SPECIFICATION 01-A
-              </span>
-            </div>
-            
-            <h1 className="font-heading text-clamp-hero text-primary font-normal leading-tight">
-              Building British Columbia <br />
-              <span className="italic font-light text-accent text-clamp-hero">with structural precision.</span>
+        {/* Color Overlay Mask */}
+        <div 
+          className="absolute inset-0 z-[2] w-full h-full"
+          style={{
+            background: 'linear-gradient(180deg, rgba(36, 10, 64, 0.8) 0%, rgba(0, 0, 0, 0.65) 100%)'
+          }}
+        />
+
+        {/* Foreground Copy Stack Layer */}
+        <div className="mx-auto max-w-[1200px] w-full px-6 z-[3] flex flex-col justify-center h-full">
+          <div className="max-w-[800px] flex flex-col items-start gap-4">
+            <span className="font-heading text-xs font-extrabold tracking-[0.3em] text-accent uppercase">
+              Heavy Commercial & Structural Framing
+            </span>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight text-left uppercase">
+              Welcome to Military Homes Construction Ltd
             </h1>
-            
-            <p className="font-body text-xs md:text-sm leading-relaxed text-muted max-w-xl font-light">
-              Military Homes Construction Ltd. delivers exceptional craftsmanship across custom homes, residential framing, commercial construction, ICF foundations, and renovation projects throughout British Columbia.
+            <p className="font-body text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed mt-4">
+              We govern multi-family framing assemblies and heavy-duty structural concrete foundations across British Columbia. Built for speed, engineered for strength, and delivered on schedule.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-2">
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <Link to="/services">
+                <button className="bg-transparent border-2 border-white text-white px-8 py-4 font-bold text-xs uppercase rounded-[4px] cursor-pointer hover:bg-white hover:text-[#240a40] transition-all duration-300">
+                  SEE OUR SERVICES
+                </button>
+              </Link>
               <Link to="/contact">
-                <Button variant="primary" className="w-full sm:w-auto text-[9px] tracking-[0.2em] py-4.5 px-10">
-                  Request a Quote
-                </Button>
-              </Link>
-              <Link to="/projects">
-                <Button variant="outline" className="w-full sm:w-auto text-[9px] tracking-[0.2em] py-4.5 px-10">
-                  View Projects
-                </Button>
+                <button className="bg-accent border-2 border-accent text-white px-8 py-4 font-bold text-xs uppercase rounded-[4px] cursor-pointer hover:bg-[#5900cc] hover:border-[#5900cc] transition-all duration-300">
+                  GET A FREE QUOTE
+                </button>
               </Link>
             </div>
-          </div>
-
-          {/* Hero Right Image (With Drafting Dimension Rulers) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end reveal-in" style={{ animationDelay: '0.2s' }}>
-            <div className="relative pr-8 pb-8">
-              
-              {/* Vertical Dimension Ruler */}
-              <div className="absolute right-0 top-0 h-[calc(100%-32px)] w-[1px] border-r border-accent/20 flex flex-col justify-between items-center py-4 text-[8px] font-mono text-accent">
-                <div className="w-2 h-[1px] bg-accent/30" />
-                <span className="rotate-90 origin-center translate-x-2 tracking-widest">H_1630mm</span>
-                <div className="w-2 h-[1px] bg-accent/30" />
-              </div>
-              
-              {/* Horizontal Dimension Ruler */}
-              <div className="absolute bottom-0 left-0 w-[calc(100%-32px)] h-[1px] border-b border-accent/20 flex justify-between items-center px-4 text-[8px] font-mono text-accent">
-                <div className="h-2 w-[1px] bg-accent/30" />
-                <span className="tracking-widest">W_965mm</span>
-                <div className="h-2 w-[1px] bg-accent/30" />
-              </div>
-
-              {/* Main Image Frame */}
-              <div className="relative w-full max-w-[390px] border border-accent/20 p-5 bg-background shadow-premium">
-                <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t border-l border-accent/40" />
-                <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t border-r border-accent/40" />
-                <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b border-l border-accent/40" />
-                <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b border-r border-accent/40" />
-
-                <div className="overflow-hidden flex items-center justify-center bg-secondary-bg border border-border/40">
-                  <img
-                    src={images.image11}
-                    alt="Military Homes Construction Hero Timber Framing"
-                    fetchPriority="high"
-                    className="w-full h-auto object-contain transition-transform duration-700 ease-out hover:scale-102"
-                  />
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-accent/15 flex justify-between items-center text-[9px] font-body">
-                  <div className="flex flex-col">
-                    <span className="font-bold text-primary uppercase">EXHIBIT // HERO-01</span>
-                    <span className="text-muted tracking-wide mt-0.5 lowercase italic font-heading text-[11px]">heavy-timber layout</span>
-                  </div>
-                  <div className="text-right text-[8px] font-mono text-muted/70 tracking-widest">
-                    <span>SCALE // 1:15</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 2. COMPANY INTRODUCTION (Newspaper print columns) */}
-      <section className="py-24 bg-secondary-bg border-b border-border/60 relative overflow-hidden">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-
-        <div className="mx-auto max-w-[1000px] px-6 text-center flex flex-col items-center gap-8 relative">
-          <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-            01 // brand statement
-          </span>
-          
-          <div className="absolute select-none pointer-events-none font-heading text-[8vw] italic font-light text-accent/3 opacity-30 -top-6">
-            Craftsmanship
-          </div>
-
-          <h2 className="font-heading text-clamp-section text-primary font-normal leading-tight z-10">
-            Crafting the skeleton and foundation of British Columbia's finest structures.
-          </h2>
-          
-          <div className="w-12 h-[1px] bg-accent/40 my-2" />
-          
-          {/* Newspaper Column format */}
-          <div className="editorial-columns text-left font-body text-xs leading-relaxed text-muted font-light max-w-3xl">
-            <p className="mb-4">
-              At Military Homes Construction Ltd. (MHCL), we believe that structural precision is the true art of building. A premium custom home or multi-family commercial structure is only as reliable as the concrete foundation it stands upon and the wooden framing skeleton that supports its load vectors.
-            </p>
-            <p>
-              By maintaining a highly trained, dedicated framing and concrete crew, we coordinate directly with structural engineering coordinates and municipal building inspectors. We verify plumb margins using high-precision laser alignment to eliminate joist bounce, rafter sag, and foundation shifts.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* 3. SERVICES OVERVIEW */}
-      <section className="py-24 bg-background relative">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
+      {/* III. HOMEPAGE TRIPLE-CARD VALUE MATRIX */}
+      <section className="py-20 bg-white border-b border-border">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="text-center flex flex-col items-center gap-4 mb-16">
+            <span className="font-heading text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+              Three reasons why people choose us
+            </span>
+            <h2 className="font-heading text-3xl font-extrabold text-text uppercase">
+              Our Core Guarantees
+            </h2>
+          </div>
 
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
-            <div className="flex flex-col gap-3">
-              <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                02 // specializations
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Card 1 */}
+            <div className="value-card group border border-border bg-white p-10 text-center shadow-[0_8px_24px_rgba(36, 10, 64, 0.06)] flex flex-col items-center rounded-[4px] transition-all duration-300 hover:bg-[#240a40] hover:border-[#240a40] hover:-translate-y-[5px]">
+              <div className="p-4 bg-accent/5 rounded-full text-accent group-hover:text-white group-hover:bg-white/10 transition-colors duration-300">
+                <Award size={32} />
+              </div>
+              <h3 className="font-heading font-bold text-xl text-text mt-6 mb-4 group-hover:text-white transition-colors duration-300">
+                Unyielding Quality
+              </h3>
+              <p className="font-body text-sm text-muted group-hover:text-white/80 transition-colors duration-300 leading-relaxed">
+                Every concrete assembly and wall layout complies with strict engineering guidelines and provincial building standards.
+              </p>
+            </div>
+ 
+            {/* Card 2 */}
+            <div className="value-card group border border-border bg-white p-10 text-center shadow-[0_8px_24px_rgba(36, 10, 64, 0.06)] flex flex-col items-center rounded-[4px] transition-all duration-300 hover:bg-[#240a40] hover:border-[#240a40] hover:-translate-y-[5px]">
+              <div className="p-4 bg-accent/5 rounded-full text-accent group-hover:text-white group-hover:bg-white/10 transition-colors duration-300">
+                <Clock size={32} />
+              </div>
+              <h3 className="font-heading font-bold text-xl text-text mt-6 mb-4 group-hover:text-white transition-colors duration-300">
+                On-Schedule Dispatch
+              </h3>
+              <p className="font-body text-sm text-muted group-hover:text-white/80 transition-colors duration-300 leading-relaxed">
+                We organize our custom framing crews to match crane dispatch windows, keeping your commercial site on schedule.
+              </p>
+            </div>
+ 
+            {/* Card 3 */}
+            <div className="value-card group border border-border bg-white p-10 text-center shadow-[0_8px_24px_rgba(36, 10, 64, 0.06)] flex flex-col items-center rounded-[4px] transition-all duration-300 hover:bg-[#240a40] hover:border-[#240a40] hover:-translate-y-[5px]">
+              <div className="p-4 bg-accent/5 rounded-full text-accent group-hover:text-white group-hover:bg-white/10 transition-colors duration-300">
+                <UserCheck size={32} />
+              </div>
+              <h3 className="font-heading font-bold text-xl text-text mt-6 mb-4 group-hover:text-white transition-colors duration-300">
+                Professionalism
+              </h3>
+              <p className="font-body text-sm text-muted group-hover:text-white/80 transition-colors duration-300 leading-relaxed">
+                Full WorkSafeBC compliance, certified crane signalers, and dedicated project managers for every project.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* IV. INDUSTRIAL VALUE SPLIT-GRID MATRIX & PROGRESS LOAD METRICS */}
+      <section ref={progressRef} className="py-20 bg-secondary-bg border-b border-border">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Column: Descriptive Text */}
+            <div className="flex flex-col gap-6">
+              <span className="font-heading text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+                Proven Capacity
               </span>
-              <h2 className="font-heading text-clamp-section text-primary font-normal">
-                Our Core Services
+              <h2 className="font-heading text-4xl font-extrabold text-primary uppercase leading-tight">
+                Reliable Services for Stronger Foundations
               </h2>
+              <div className="w-20 h-[3px] bg-accent" />
+              <p className="font-body text-sm text-muted leading-relaxed">
+                Since our inception, MHCL has framing-skeletized dozens of custom developments across the Lower Mainland. We manage heavy timber layouts, concrete pour configurations, and complex seismic ties.
+              </p>
             </div>
-            <Link to="/services" className="group flex items-center gap-2 font-body text-[9px] font-bold tracking-[0.2em] uppercase text-primary hover:text-accent transition-colors">
-              <span>View All Services Details</span>
-              <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
 
-          {/* Cards Grid - Asymmetrical staggers & catalog labels */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {SERVICES.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col bg-background border border-border p-5 group hover:border-accent/25 hover:shadow-premium transition-all duration-500 rounded-2xl ${
-                  index % 3 === 1 ? 'lg:translate-y-6' : index % 3 === 2 ? 'lg:-translate-y-6' : ''
-                }`}
-              >
-                {/* Image Frame with drafting points */}
-                <div className="relative w-full bg-secondary-bg overflow-hidden flex items-center justify-center border border-border/40 p-2 rounded-xl">
-                  <div className="absolute top-1 left-1 w-1 h-1 rounded-full bg-accent/15" />
-                  <div className="absolute top-1 right-1 w-1 h-1 rounded-full bg-accent/15" />
-                  <div className="absolute bottom-1 left-1 w-1 h-1 rounded-full bg-accent/15" />
-                  <div className="absolute bottom-1 right-1 w-1 h-1 rounded-full bg-accent/15" />
-                  
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    loading="lazy"
-                    className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover:scale-102 rounded-lg"
-                  />
-                </div>
-                
-                {/* Content */}
-                <div className="flex flex-col gap-4 pt-6">
-                  <div className="flex justify-between items-start">
-                    <h3 className="font-body text-sm font-bold text-primary">
-                      {service.title}
-                    </h3>
-                    <span className="font-mono text-[9px] text-accent/50 font-bold">0{index + 1}</span>
-                  </div>
-                  <p className="font-body text-[11px] text-muted leading-relaxed font-light min-h-[48px]">
-                    {service.description}
-                  </p>
-                  <div className="w-full h-[1px] bg-accent/10 my-2" />
-                  <Link
-                    to={`/services#${service.id}`}
-                    className="group flex items-center gap-2 font-body text-[9px] font-bold tracking-[0.25em] uppercase text-accent hover:text-primary transition-colors"
+            {/* Right Column: Animated Data Counters */}
+            <div className="flex flex-col gap-8">
+              
+              {/* Statistical loop counter */}
+              <div className="flex items-center gap-6 p-6 bg-white border border-border rounded-[4px] shadow-[0_8px_24px_rgba(36, 10, 64, 0.04)]">
+                <div className="w-16 h-16 bg-[#7f00ff]/10 rounded-full flex items-center justify-center shrink-0 text-accent overflow-hidden relative">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-8 h-8"
                   >
-                    <span>Discover Specs</span>
-                    <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                    {/* Foundation Ground Line */}
+                    <line x1="2" y1="21" x2="22" y2="21" strokeDasharray="3 2" className="animate-pulse" />
+                    
+                    {/* Column 1 (Left) */}
+                    <path 
+                      d="M6,21 L6,11" 
+                      className="animate-rise-left" 
+                      style={{ transformOrigin: 'bottom' }} 
+                    />
+                    
+                    {/* Column 2 (Center) */}
+                    <path 
+                      d="M12,21 L12,5" 
+                      className="animate-rise-center" 
+                      style={{ transformOrigin: 'bottom' }} 
+                    />
+                    
+                    {/* Column 3 (Right) */}
+                    <path 
+                      d="M18,21 L18,11" 
+                      className="animate-rise-right" 
+                      style={{ transformOrigin: 'bottom' }} 
+                    />
+                    
+                    {/* Horizontal Rafter/Beam */}
+                    <path 
+                      d="M6,11 L12,5 L18,11" 
+                      className="animate-beam-draw" 
+                      strokeDasharray="40" 
+                      strokeDashoffset="40"
+                    />
+                  </svg>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <div className="flex flex-col">
+                  <span className="font-heading text-2xl font-black text-primary">
+                    20+ Years
+                  </span>
+                  <span className="font-body text-xs text-muted">
+                    of combined framing and structural engineering experience
+                  </span>
+                </div>
+              </div>
 
-        </div>
-      </section>
-
-      {/* 4. WHY CHOOSE MHCL */}
-      <section className="py-24 bg-secondary-bg border-y border-border/60 relative overflow-hidden">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-            
-            {/* Left side Image (40% width, uncropped with dimension lines) */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative pr-8 pb-8 w-full max-w-[380px]">
+              {/* Progress Loaders */}
+              <div className="flex flex-col gap-6">
                 
-                {/* Horizontal Dimension */}
-                <div className="absolute bottom-0 left-0 w-[calc(100%-32px)] h-[1px] border-b border-accent/20 flex justify-between items-center px-4 text-[8px] font-mono text-accent">
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                  <span className="tracking-widest">W_900mm</span>
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                </div>
-                
-                {/* Vertical Dimension */}
-                <div className="absolute right-0 top-0 h-[calc(100%-32px)] w-[1px] border-r border-accent/20 flex flex-col justify-between items-center py-4 text-[8px] font-mono text-accent">
-                  <div className="w-1.5 h-[1px] bg-accent/30" />
-                  <span className="rotate-90 origin-center translate-x-2 tracking-widest">H_1500mm</span>
-                  <div className="w-1.5 h-[1px] bg-accent/30" />
-                </div>
-
-                <div className="relative w-full bg-background border border-accent/20 p-5 shadow-subtle">
-                  <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t border-l border-accent/40" />
-                  <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b border-r border-accent/40" />
-
-                  <div className="overflow-hidden flex items-center justify-center bg-background border border-border/40">
-                    <img
-                      src={images.image14}
-                      alt="Why choose MHCL construction framing"
-                      loading="lazy"
-                      className="w-full h-auto object-contain"
+                {/* Loader 1 */}
+                <div>
+                  <div className="flex justify-between items-center font-heading text-xs font-extrabold text-text uppercase">
+                    <span>Comprehensive Solutions</span>
+                    <span>85%</span>
+                  </div>
+                  <div className="bg-border h-[12px] rounded-[6px] w-full mt-2 overflow-hidden">
+                    <div 
+                      className="bg-accent h-full rounded-[6px] transition-all duration-[1500ms] ease-out" 
+                      style={{ width: isProgressInView ? '85%' : '0%' }}
                     />
                   </div>
-                  
-                  <div className="mt-4 pt-3 border-t border-accent/15 flex justify-between items-center text-[9px] font-body">
-                    <div>
-                      <span className="font-bold text-primary uppercase">EXHIBIT // ACC-02</span>
-                    </div>
-                    <div className="text-right text-[8px] font-mono text-muted/70">
-                      <span>TIMBER ANCHORS</span>
-                    </div>
+                </div>
+
+                {/* Loader 2 */}
+                <div>
+                  <div className="flex justify-between items-center font-heading text-xs font-extrabold text-text uppercase">
+                    <span>Innovative Approach</span>
+                    <span>90%</span>
                   </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* Right side Copy */}
-            <div className="lg:col-span-7 flex flex-col gap-10">
-              <div className="flex flex-col gap-3">
-                <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                  03 // our standards
-                </span>
-                <h2 className="font-heading text-clamp-section text-primary font-normal">
-                  Why Partners Trust MHCL
-                </h2>
-              </div>
-
-              {/* Reasons Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                {WHY_CHOOSE_US_POINTS.map((point) => (
-                  <div key={point.title} className="flex flex-col gap-3 border-l border-accent/20 pl-4">
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent shrink-0">
-                        <Check size={14} />
-                      </span>
-                      <h4 className="font-body text-xs font-bold text-primary">
-                        {point.title}
-                      </h4>
-                    </div>
-                    <p className="font-body text-[11px] text-muted leading-relaxed font-light pl-6">
-                      {point.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 5. FEATURED PROJECTS (Asymmetrical Columns & Dimension Marks) */}
-      <section className="py-24 bg-background relative">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
-            <div className="flex flex-col gap-3">
-              <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                04 // case studies
-              </span>
-              <h2 className="font-heading text-clamp-section text-primary font-normal">
-                Featured Projects
-              </h2>
-            </div>
-            <Link to="/projects" className="group flex items-center gap-2 font-body text-[9px] font-bold tracking-[0.2em] uppercase text-primary hover:text-accent transition-colors">
-              <span>View All Portfolio Projects</span>
-              <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
-            {/* Project 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 flex flex-col gap-6 group cursor-pointer"
-            >
-              <div className="relative pr-8 pb-8">
-                
-                {/* Horizontal Dimension */}
-                <div className="absolute bottom-0 left-0 w-[calc(100%-32px)] h-[1px] border-b border-accent/20 flex justify-between items-center px-4 text-[8px] font-mono text-accent">
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                  <span className="tracking-widest">W_1000mm</span>
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                </div>
-                
-                <div className="relative bg-secondary-bg border border-accent/15 p-6 overflow-hidden flex items-center justify-center">
-                  <div className="absolute top-2 left-2 w-1.5 h-1.5 bg-accent/10 rounded-full" />
-                  <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-accent/10 rounded-full" />
-                  
-                  <img
-                    src={images.image12}
-                    alt="Custom Home Framing, West Vancouver"
-                    loading="lazy"
-                    className="w-full h-auto object-contain transition-transform duration-750 ease-out group-hover:scale-102"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 pl-2">
-                <div className="flex justify-between items-center border-b border-accent/10 pb-2">
-                  <span className="font-body text-[8px] font-bold tracking-[0.25em] text-accent uppercase">
-                    RESIDENTIAL FRAMING // WEST VANCOUVER
-                  </span>
-                  <span className="font-mono text-[9px] text-muted/60">MHCL-FR12</span>
-                </div>
-                <h3 className="font-heading text-3xl font-normal text-primary">
-                  The Ridgeview Residence
-                </h3>
-                <p className="font-body text-xs text-muted leading-relaxed font-light">
-                  A high-end architectural framing build utilizing premium lumber and custom steel beam integrations, completed to millimeter tolerances on a challenging sloped terrain.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Project 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 lg:translate-y-20 flex flex-col gap-6 group cursor-pointer"
-            >
-              <div className="relative pr-8 pb-8">
-                
-                {/* Vertical Dimension */}
-                <div className="absolute right-0 top-0 h-[calc(100%-32px)] w-[1px] border-r border-accent/20 flex flex-col justify-between items-center py-4 text-[8px] font-mono text-accent">
-                  <div className="w-1.5 h-[1px] bg-accent/30" />
-                  <span className="rotate-90 origin-center translate-x-2 tracking-widest">H_1600mm</span>
-                  <div className="w-1.5 h-[1px] bg-accent/30" />
-                </div>
-
-                <div className="relative bg-secondary-bg border border-accent/15 p-6 overflow-hidden flex items-center justify-center">
-                  <div className="absolute top-2 left-2 w-1.5 h-1.5 bg-accent/10 rounded-full" />
-                  <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-accent/10 rounded-full" />
-                  
-                  <img
-                    src={images.image20}
-                    alt="ICF Foundation & Multi-family Build, Burnaby"
-                    loading="lazy"
-                    className="w-full h-auto object-contain transition-transform duration-750 ease-out group-hover:scale-102"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 pl-2">
-                <div className="flex justify-between items-center border-b border-accent/10 pb-2">
-                  <span className="font-body text-[8px] font-bold tracking-[0.25em] text-accent uppercase">
-                    ICF FOUNDATIONS // BURNABY
-                  </span>
-                  <span className="font-mono text-[9px] text-muted/60">MHCL-FD20</span>
-                </div>
-                <h3 className="font-heading text-3xl font-normal text-primary">
-                  The Metrotown Structural Shell
-                </h3>
-                <p className="font-body text-xs text-muted leading-relaxed font-light">
-                  Advanced Insulated Concrete Forms (ICF) foundation installation providing superior thermal values and lateral resistance, followed by standard multi-family timber framing.
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-
-          <div className="h-0 lg:h-24" />
-        </div>
-      </section>
-
-      {/* 6. CONSTRUCTION PROCESS (Uses Image 23 with structural lines) */}
-      <section className="py-24 bg-secondary-bg border-y border-border/60 relative overflow-hidden">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-            
-            {/* Process Copy */}
-            <div className="lg:col-span-7 flex flex-col gap-10 order-2 lg:order-1">
-              <div className="flex flex-col gap-3">
-                <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                  05 // how we work
-                </span>
-                <h2 className="font-heading text-clamp-section text-primary font-normal">
-                  The Framing & Foundation Process
-                </h2>
-              </div>
-
-              {/* Steps List */}
-              <div className="flex flex-col gap-8">
-                {PROCESS_STEPS.map((step) => (
-                  <div key={step.step} className="flex gap-6 border-b border-accent/10 pb-6 last:border-0 last:pb-0">
-                    <span className="font-heading text-4xl italic text-accent/50 select-none">
-                      {step.step}
-                    </span>
-                    <div className="flex flex-col gap-1.5">
-                      <h4 className="font-body text-xs font-bold text-primary uppercase tracking-wider">
-                        {step.title}
-                      </h4>
-                      <p className="font-body text-xs text-muted leading-relaxed font-light">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Process Image */}
-            <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
-              <div className="relative pr-8 pb-8 w-full max-w-[380px]">
-                
-                {/* Horizontal Dimension */}
-                <div className="absolute bottom-0 left-0 w-[calc(100%-32px)] h-[1px] border-b border-accent/20 flex justify-between items-center px-4 text-[8px] font-mono text-accent">
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                  <span className="tracking-widest">W_900mm</span>
-                  <div className="h-1.5 w-[1px] bg-accent/30" />
-                </div>
-
-                <div className="relative bg-background border border-accent/20 p-5 shadow-subtle">
-                  <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t border-l border-accent/40" />
-                  <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b border-r border-accent/40" />
-
-                  <div className="overflow-hidden flex items-center justify-center bg-background border border-border/40">
-                    <img
-                      src={images.image23}
-                      alt="Precision construction site framing"
-                      loading="lazy"
-                      className="w-full h-auto object-contain"
+                  <div className="bg-border h-[12px] rounded-[6px] w-full mt-2 overflow-hidden">
+                    <div 
+                      className="bg-accent h-full rounded-[6px] transition-all duration-[1500ms] ease-out" 
+                      style={{ width: isProgressInView ? '90%' : '0%' }}
                     />
                   </div>
-                  <div className="mt-4 pt-3 border-t border-accent/15 flex justify-between items-center text-[9px] font-body">
-                    <div>
-                      <span className="font-bold text-primary uppercase">EXHIBIT // PRC-23</span>
-                    </div>
-                    <div className="text-right text-[8px] font-mono text-muted/70">
-                      <span>STEEL & WOOD SHELL</span>
-                    </div>
+                </div>
+
+                {/* Loader 3 */}
+                <div>
+                  <div className="flex justify-between items-center font-heading text-xs font-extrabold text-text uppercase">
+                    <span>Client-Centric Focus</span>
+                    <span>75%</span>
+                  </div>
+                  <div className="bg-border h-[12px] rounded-[6px] w-full mt-2 overflow-hidden">
+                    <div 
+                      className="bg-accent h-full rounded-[6px] transition-all duration-[1500ms] ease-out" 
+                      style={{ width: isProgressInView ? '75%' : '0%' }}
+                    />
                   </div>
                 </div>
 
               </div>
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 7. PORTRAIT MASONRY GALLERY PREVIEW */}
-      <section className="py-24 bg-background relative">
-        <div className="absolute left-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-        <div className="absolute right-[3.5%] top-0 w-[1px] h-full bg-accent/5 pointer-events-none hidden xl:block" />
-
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div className="flex flex-col gap-3">
-              <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
-                06 // visual proof
-              </span>
-              <h2 className="font-heading text-clamp-section text-primary font-normal">
-                Craftsmanship in Detail
-              </h2>
-            </div>
-            <Link to="/projects" className="group flex items-center gap-2 font-body text-[9px] font-bold tracking-[0.2em] uppercase text-primary hover:text-accent transition-colors">
-              <span>Enter Full Gallery</span>
-              <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+      {/* V. THE CORE SERVICES MATRIX SECTION */}
+      <section className="py-20 bg-[#240a40] text-white">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="text-center flex flex-col items-center gap-4 mb-16">
+            <span className="font-heading text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+              Core Capabilities
+            </span>
+            <h2 className="font-heading text-3xl font-extrabold uppercase">
+              What We Offer
+            </h2>
           </div>
 
-          <GalleryGrid images={galleryPreviewImages} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            {/* Column 1: Multi-Family Projects & Hotels */}
+            <div className="flex flex-col bg-white/5 border border-white/10 p-8 rounded-[4px] hover:border-accent/40 transition-colors duration-300">
+              <h3 className="font-heading text-xl font-extrabold uppercase border-b border-white/10 pb-4 flex items-center gap-3">
+                <span className="w-3 h-3 bg-accent" />
+                Multi-Family & Hotels
+              </h3>
+              <ul className="flex flex-col text-left gap-4 mt-6">
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Condominiums
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Apartments
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Townhomes
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Student Housing
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Hotels & Motels
+                </li>
+              </ul>
+            </div>
 
+            {/* Column 2: Commercial Projects */}
+            <div className="flex flex-col bg-white/5 border border-white/10 p-8 rounded-[4px] hover:border-accent/40 transition-colors duration-300">
+              <h3 className="font-heading text-xl font-extrabold uppercase border-b border-white/10 pb-4 flex items-center gap-3">
+                <span className="w-3 h-3 bg-accent" />
+                Commercial Projects
+              </h3>
+              <ul className="flex flex-col text-left gap-4 mt-6">
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Strip Malls
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Office Buildings
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Schools & Academies
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Churches & Temples
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Retail Stores
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Heavy Timber & CLT */}
+            <div className="flex flex-col bg-white/5 border border-white/10 p-8 rounded-[4px] hover:border-accent/40 transition-colors duration-300">
+              <h3 className="font-heading text-xl font-extrabold uppercase border-b border-white/10 pb-4 flex items-center gap-3">
+                <span className="w-3 h-3 bg-accent" />
+                Heavy Timber & CLT
+              </h3>
+              <ul className="flex flex-col text-left gap-4 mt-6">
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Mass Timber Shells
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  CLT Assemblies
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Heavy Timber Framing
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Post & Beam Structural
+                </li>
+                <li className="flex items-center gap-3 font-body text-sm text-white/90">
+                  <span className="w-1.5 h-1.5 bg-accent shrink-0" />
+                  Custom Trusses
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      {/* 8. LARGE CTA BANNER */}
-      <section className="py-28 bg-primary text-white relative overflow-hidden">
-        <div className="mx-auto max-w-[1000px] px-6 text-center flex flex-col items-center gap-8 relative z-10">
-          <span className="font-body text-[9px] font-bold tracking-[0.3em] text-accent uppercase">
+      {/* VI. CUSTOMER FEEDBACK GRAPHIC WATERMARK ROTATOR */}
+      <section className="py-24 bg-secondary-bg border-b border-border relative overflow-hidden">
+        
+        {/* World Map Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
+          <svg viewBox="0 0 1000 500" className="w-full h-full text-primary fill-current">
+            <path d="M150,150 L200,140 L250,160 L300,120 L350,170 L400,130 L450,180 L500,120 L550,190 L600,130 L650,180 L700,140 L750,200 L800,130 L850,150 Z" strokeWidth="2" stroke="currentColor" fill="none" />
+            <circle cx="200" cy="150" r="5" />
+            <circle cx="450" cy="180" r="5" />
+            <circle cx="700" cy="140" r="5" />
+            <circle cx="850" cy="150" r="5" />
+            <path d="M150,250 Q300,350 450,250 T750,250 T900,300" strokeWidth="1" stroke="currentColor" strokeDasharray="5,5" fill="none" />
+          </svg>
+        </div>
+
+        <div className="mx-auto max-w-[1200px] px-6 relative z-10">
+          <div className="text-center flex flex-col items-center gap-4 mb-16">
+            <span className="font-body text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+              Testimonials
+            </span>
+            <h2 className="font-heading text-3xl font-extrabold text-text uppercase">
+              What Our Clients Say
+            </h2>
+          </div>
+
+          {/* Testimonial Box Wrapper */}
+          <div className="relative max-w-[1000px] mx-auto rounded-[4px] shadow-[0_8px_24px_rgba(36, 10, 64, 0.06)] overflow-hidden">
+            <StaggerTestimonials />
+          </div>
+        </div>
+      </section>
+
+      {/* VIII. LARGE CTA BANNER */}
+      <section className="py-20 bg-accent text-white relative overflow-hidden">
+        <div className="mx-auto max-w-[1000px] px-6 text-center flex flex-col items-center gap-6 relative z-10">
+          <span className="font-heading text-xs font-extrabold tracking-[0.3em] text-white uppercase">
             Let's Collaborate
           </span>
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-light text-white leading-tight">
+          <h2 className="font-heading text-4xl font-extrabold text-white uppercase leading-tight">
             Ready to build with structural precision?
           </h2>
-          <p className="font-body text-xs text-white/70 max-w-xl font-light leading-relaxed">
+          <p className="font-body text-sm text-white/90 max-w-xl leading-relaxed">
             Partner with British Columbia's premier residential and commercial framing contractors. Contact us today to receive a detailed estimation for your foundation or framing plans.
           </p>
-          <div className="w-12 h-[1px] bg-accent/40 my-2" />
+          <div className="w-16 h-[2px] bg-white/40 my-2" />
           <Link to="/contact">
-            <Button variant="light" className="text-[9px] tracking-[0.2em] py-4.5 px-10">
+            <button className="bg-white text-[#240a40] px-10 py-5 font-bold text-xs uppercase rounded-[4px] border-none tracking-[0.5px] cursor-pointer hover:bg-[#f4f6f9] transition-colors duration-200">
               Request a Free Consultation
-            </Button>
+            </button>
           </Link>
         </div>
       </section>

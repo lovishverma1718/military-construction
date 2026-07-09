@@ -44,4 +44,11 @@ export const images = {
   image21,
   image22,
   image23,
+  about_hero_bg: new URL('../assets/images/about_hero_bg.png', import.meta.url).href,
+  about_hero_v2: new URL('../assets/images/about_hero_v2.png', import.meta.url).href,
+  services_hero_bg: new URL('../assets/images/services_hero_bg.png', import.meta.url).href,
+  services_hero_v2: new URL('../assets/images/services_hero_v2.png', import.meta.url).href,
+  projects_hero_bg: new URL('../assets/images/projects_hero_bg.png', import.meta.url).href,
+  contact_hero_bg: new URL('../assets/images/contact_hero_bg.png', import.meta.url).href,
+  contact_hero_v2: new URL('../assets/images/contact_hero_v2.png', import.meta.url).href,
 };

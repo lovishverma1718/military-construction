@@ -1,23 +1,97 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../helvetica-255/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../helvetica-255/Helvetica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../helvetica-255/helvetica-light-587ebe5a59211.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('../apple-garamond/AppleGaramond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('../apple-garamond/AppleGaramond-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('../apple-garamond/AppleGaramond-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('../apple-garamond/AppleGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('../apple-garamond/AppleGaramond-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
 @theme {
-  --color-primary: #242424;
-  --color-background: #FFFFFF;
-  --color-secondary-bg: #F8F7F5;
-  --color-text: #2F2F2F;
-  --color-muted: #6D6D6D;
-  --color-border: #E8E8E8;
-  --color-accent: #B38A38;
+  --color-primary: #240a40;
+  --color-background: #ffffff;
+  --color-secondary-bg: #f4f6f9;
+  --color-text: #111111;
+  --color-muted: #555555;
+  --color-border: #e5e7eb;
+  --color-accent: #7f00ff;
+  --color-accent-hover: #5900cc;
   --color-card: #FFFFFF;
 
-  --font-heading: 'Instrument Serif', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Apple Garamond', Georgia, serif;
+  --font-body: 'Helvetica', -apple-system, sans-serif;
 
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
+  /* Scaled Body/Normal text font sizes (1.5x) */
+  --font-size-xs: 1.125rem;
+  --font-size-sm: 1.3125rem;
+  --font-size-base: 1.5rem;
+  --font-size-lg: 1.6875rem;
 
-  --shadow-premium: 0 20px 50px rgba(36, 36, 36, 0.05);
-  --shadow-subtle: 0 4px 20px rgba(36, 36, 36, 0.02);
+  /* Standard Heading/Display font sizes (Reverted) */
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
+
+  --shadow-premium: 0px 8px 24px rgba(36, 10, 64, 0.06);
+  --shadow-subtle: 0px 8px 24px rgba(36, 10, 64, 0.06);
 }
 
 @layer base {
@@ -53,23 +127,23 @@
     color: var(--color-background);
   }
 
-  /* Architectural custom scrollbar */
+  /* Custom luxury thin scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-secondary-bg);
+    background: var(--color-background);
   }
 
   ::-webkit-scrollbar-thumb {
     background: var(--color-accent);
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #9d772d;
+    background: #8b6823;
   }
 
   /* Custom Focus outline */
@@ -90,28 +164,28 @@
   font-family: var(--font-body);
 }
 
-/* Responsive Typographic Scales */
+/* Premium Typographic Scale Clamps (Reverted) */
 @utility text-clamp-hero {
-  font-size: clamp(38px, 5.2vw, 68px);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 @utility text-clamp-section {
-  font-size: clamp(28px, 3.8vw, 44px);
+  font-size: clamp(30px, 4.5vw, 54px);
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 @utility text-clamp-subheading {
-  font-size: clamp(18px, 2.2vw, 24px);
+  font-size: clamp(18px, 2.5vw, 28px);
   line-height: 1.25;
 }
 
 @utility glass-nav {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(250, 249, 246, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 @utility shadow-premium {
@@ -122,39 +196,45 @@
   box-shadow: var(--shadow-subtle);
 }
 
-/* Technical Drafting Paper Grid Background (Subtle Gold lines) */
-@utility bg-blueprint-grid {
-  background-size: 60px 60px;
-  background-image: 
-    linear-gradient(to right, rgba(179, 138, 56, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(179, 138, 56, 0.04) 1px, transparent 1px);
-}
-
-/* Double-column newspaper/print column layout */
-.editorial-columns {
-  column-count: 2;
-  column-gap: 2.5rem;
-}
-
-@media (max-width: 768px) {
-  .editorial-columns {
-    column-count: 1;
-    column-gap: 0;
-  }
-}
-
-/* Custom blueprint frame styling */
-@utility blueprint-frame {
+/* Animated Underline for Navigation Links */
+.nav-link-underline {
   position: relative;
-  border: 1px solid rgba(179, 138, 56, 0.15);
-  background-color: var(--color-background);
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link-underline:hover::after,
+.nav-link-active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Luxury Image Hover Animations */
+.hover-zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.hover-zoom-image {
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom-container:hover .hover-zoom-image {
+  transform: scale(1.04);
 }
 
 /* Custom fade reveal animation classes */
 .reveal-up {
   opacity: 0;
-  transform: translateY(30px);
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(20px);
+  animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes revealUp {
@@ -166,7 +246,7 @@
 
 .reveal-in {
   opacity: 0;
-  animation: revealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes revealIn {
@@ -175,19 +255,82 @@
   }
 }
 
-/* Custom premium nested roundness for all layout images and photo frames */
-.border-accent\/20,
-.border-accent\/15 {
-  border-radius: 16px;
+/* Standard Corporate Roundness for layouts */
+.luxury-roundness {
+  border-radius: 4px;
+}
+.luxury-roundness-inner {
+  border-radius: 4px;
 }
 
-.border-accent\/20 .overflow-hidden,
-.border-accent\/15 .overflow-hidden,
-.border-accent\/15.overflow-hidden {
-  border-radius: 12px;
+/* Custom Framing / Building Construction SVG Animation */
+@keyframes riseUp {
+  0% {
+    transform: scaleY(0);
+  }
+  40%, 80% {
+    transform: scaleY(1);
+  }
+  90%, 100% {
+    transform: scaleY(0);
+  }
 }
 
-.border-accent\/20 img,
-.border-accent\/15 img {
-  border-radius: 8px;
+@keyframes drawBeam {
+  0%, 40% {
+    stroke-dashoffset: 40;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  90%, 100% {
+    stroke-dashoffset: 40;
+    opacity: 0;
+  }
 }
+
+.animate-rise-left {
+  animation: riseUp 4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+.animate-rise-center {
+  animation: riseUp 4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  animation-delay: 0.2s;
+}
+.animate-rise-right {
+  animation: riseUp 4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  animation-delay: 0.4s;
+}
+.animate-beam-draw {
+  animation: drawBeam 4s infinite ease-in-out;
+}
+
+/* Custom Architectural Blueprint Grids & Textures */
+@utility bg-blueprint-grid {
+  background-size: 45px 45px;
+  background-image: 
+    linear-gradient(to right, rgba(127, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(127, 0, 255, 0.05) 1px, transparent 1px);
+}
+
+@utility bg-concrete-texture {
+  background-color: #f4f6f9;
+  background-image: radial-gradient(rgba(36, 10, 64, 0.03) 1px, transparent 0), radial-gradient(rgba(36, 10, 64, 0.03) 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+@utility bg-architecture-lines {
+  background-image: repeating-linear-gradient(45deg, rgba(127, 0, 255, 0.015) 0px, rgba(127, 0, 255, 0.015) 2px, transparent 2px, transparent 12px);
+}
+
+@utility soft-glow-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(127, 0, 255, 0.05) 0%, transparent 75%);
+}
+
+
+
