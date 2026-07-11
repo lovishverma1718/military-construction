@@ -376,20 +376,6 @@ ${formData.message}`;
         </div>
       </section>
 
-      {/* 3. INTERACTIVE OPERATIONAL MAPPING MODULE */}
-      <section className="w-full h-[450px] overflow-hidden border-t border-border">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166311.2335198031!2d-123.26388414434283!3d49.25771430030588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f143a94fb3%3A0xbb9196ea9b8590!2sVancouver%2C%20BC!5e0!3m2!1sen!2scan!4v1700000000000" 
-          width="100%" 
-          height="450" 
-          style={{ border: 0, filter: 'grayscale(10%) contrast(105%)' }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade" 
-          title="Military Homes Vancouver Office"
-        />
-      </section>
-
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useInView } from 'framer-motion';
 import { Award, Clock, UserCheck } from 'lucide-react';
 import { images } from '../constants/images';
-import heroVideo from '../assets/hero-video.mp4';
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
 
 export const Home: React.FC = () => {
@@ -15,7 +14,7 @@ export const Home: React.FC = () => {
     <div className="w-full bg-white text-[#111111] pt-[80px]">
       
       {/* II. THE HOMEPAGE HERO HEROIC BLOCK */}
-      <section className="relative w-full h-[90vh] bg-black overflow-hidden flex items-center">
+      <section className="relative w-full h-[65vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] bg-black overflow-hidden flex items-center">
         
         {/* The HTML5 Video Stream Layer */}
         <div className="hero-video-wrapper absolute top-0 left-0 w-full h-full z-[1]">
@@ -27,7 +26,7 @@ export const Home: React.FC = () => {
             className="w-full h-full object-cover opacity-100"
             poster={images.image12}
           >
-            <source src={heroVideo} type="video/mp4" />
+            <source src={images.mainVideo} type="video/mp4" />
           </video>
         </div>
 

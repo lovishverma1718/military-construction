@@ -6,6 +6,8 @@ import {
   MapPin, 
   ChevronDown, 
   ChevronUp, 
+  ChevronLeft,
+  ChevronRight,
   ArrowRight
 } from 'lucide-react';
 import { images } from '../constants/images';
@@ -25,13 +27,15 @@ interface CaseStudyType {
   goals: string[];
   materials: string[];
   timeline: string;
+  images?: string[];
+  videos?: string[];
 }
 
 const FLAGSHIP_PROJECTS: CaseStudyType[] = [
   {
     id: "ridgeview-residence",
-    title: "The Ridgeview Custom Residence",
-    location: "West Vancouver, BC",
+    title: "Ridge townhouse project maple ridge",
+    location: "Maple Ridge, BC",
     serviceType: "Luxury Home Framing & Erection",
     year: "2024",
     sqFt: "5,400 SQ. FT.",
@@ -50,8 +54,8 @@ const FLAGSHIP_PROJECTS: CaseStudyType[] = [
   },
   {
     id: "whistler-timber-passivhaus",
-    title: "The Whistler Timber Passivhaus",
-    location: "Whistler, BC",
+    title: "Townhouse project in Coquitlam",
+    location: "Coquitlam, BC",
     serviceType: "Exposed Architectural Heavy Timber Framing",
     year: "2024",
     sqFt: "4,800 SQ. FT.",
@@ -69,29 +73,9 @@ const FLAGSHIP_PROJECTS: CaseStudyType[] = [
     timeline: "12 Weeks"
   },
   {
-    id: "kitsilano-underpinning-remediation",
-    title: "The Kitsilano Underpinning & Remediation",
-    location: "Kitsilano, Vancouver, BC",
-    serviceType: "Structural Underpinning & Basement Lowering",
-    year: "2024",
-    sqFt: "3,200 SQ. FT. (Remodeled)",
-    image: images.image2,
-    description: "Heritage structure foundation repair and basement excavation lowering to establish modern code compliance.",
-    challenges: "Sustaining active load points of a 100-year-old wood frame while excavating 4 feet below footings.",
-    solutions: "Transferred building loads onto temporary steel needle shoring beams and poured new concrete footings in stages.",
-    outcome: "Successfully established safe headroom clearance with zero wall settlement or stress cracks.",
-    goals: [
-      "Lower basement floor slab safely",
-      "Reinforce structural soil pressure resistance",
-      "Preserve historical timber frames"
-    ],
-    materials: ["Steel shoring H-beams", "Self-consolidating concrete (SCC)", "Polyurethane injections"],
-    timeline: "10 Weeks"
-  },
-  {
     id: "metrotown-structural-shell",
-    title: "The Metrotown Structural Shell",
-    location: "Burnaby, BC",
+    title: "Fourplex project in Vernon bc",
+    location: "Vernon, BC",
     serviceType: "Multi-Family ICF Concrete Foundation",
     year: "2023",
     sqFt: "12,800 SQ. FT.",
@@ -109,113 +93,116 @@ const FLAGSHIP_PROJECTS: CaseStudyType[] = [
     timeline: "8 Weeks"
   },
   {
-    id: "fraser-valley-icf-assembly",
-    title: "The Fraser Valley ICF Assembly",
-    location: "Abbotsford, BC",
-    serviceType: "ICF Foundations and Waterproofing",
-    year: "2023",
-    sqFt: "6,200 SQ. FT.",
-    image: images.image4,
-    description: "Advanced Insulated Concrete Form foundation walls built to handle high lateral water pressure table conditions.",
-    challenges: "Preventing water ingress from a surrounding high alluvial water table basin.",
-    solutions: "Assembled interlocking ICF blocks integrated with external dimpled drainage mats and dual sump lines.",
-    outcome: "Delivered a fully waterproofed basement foundation shell with R-22 insulation values.",
-    goals: [
-      "Achieve 100% moisture envelope protection",
-      "Continuous concrete core fill alignment",
-      "Establish soundproof cellar boundaries"
-    ],
-    materials: ["Monolithic ICF units", "Dimpled air-gap membrane", "Premium structural concrete"],
-    timeline: "6 Weeks"
-  },
-  {
-    id: "ridgeview-vaulted-ceilings",
-    title: "The Ridgeview Vaulted Ceilings",
-    location: "West Vancouver, BC",
-    serviceType: "Custom Home Vaulted Timber Framing",
-    year: "2024",
-    sqFt: "3,800 SQ. FT.",
-    image: images.image8,
-    description: "Intricate ceiling framing geometries, custom timber post caps, and vaulted wood rafters.",
-    challenges: "Calculating complex geometric intersections across a multi-slope roofline.",
-    solutions: "Mapped layout coordinates using precision laser distance calculators and CNC-trimmed wood joints.",
-    outcome: "Delivered a visually striking, structurally sound vaulted roof frame ready for drywall.",
-    goals: [
-      "Calculate compound miter cuts precisely",
-      "Erect exposed structural ceiling collar ties",
-      "Seamless drywall backing alignment"
-    ],
-    materials: ["Premium kiln-dried timber", "Structural wood screws", "Exposed hardware details"],
-    timeline: "5 Weeks"
-  },
-  {
-    id: "coquitlam-multi-family-framing-skeleton",
-    title: "The Coquitlam Duplex Skeleton",
-    location: "Coquitlam, BC",
-    serviceType: "Multi-Family Framing Skeleton",
-    year: "2023",
-    sqFt: "7,200 SQ. FT.",
-    image: images.image21,
-    description: "Comprehensive wood skeleton framing for a multi-family duplex structure.",
-    challenges: "Erecting tall multi-level wall panels on a high-density lot with limited working space.",
-    solutions: "Staged materials off-site and coordinated rapid panel crane placements to prevent site logjams.",
-    outcome: "Erected the main duplex wood skeleton ahead of schedule, enabling rapid lock-up handoff.",
-    goals: [
-      "Erect firewall partition framing to code",
-      "Precise window header alignment",
-      "Stiff structural floor joist setups"
-    ],
-    materials: ["Select lumber framing studs", "Structural floor trusses", "Sheathing membrane barriers"],
-    timeline: "9 Weeks"
-  },
-  {
-    id: "kitsilano-roof-truss-assembly",
-    title: "The Kitsilano Roof Truss Assembly",
+    id: "park-residence-vancouver",
+    title: "Park Residence Vancouver",
     location: "Vancouver, BC",
-    serviceType: "Heavy Timber Truss Construction",
+    serviceType: "Luxury Residential Wood Framing",
     year: "2024",
-    sqFt: "2,400 SQ. FT.",
-    image: images.image6,
-    description: "Architectural roof truss framing, collar ties, and ridge beam framing installations.",
-    challenges: "Handling heavy timbers on a narrow residential street with overhead power utility constraints.",
-    solutions: "Utilized specialized compact cranes and manual hoist systems to slide roof members into place.",
-    outcome: "Assembled the entire roof framework with zero utility disruptions and perfect plumb lines.",
+    sqFt: "6,500 SQ. FT.",
+    image: images.project4,
+    description: "Pre-fabricated luxury timber panel erection and high-load shear wall framing for an upscale park-side estate.",
+    challenges: "High lateral wind loads from open park borders and strict architectural height limits.",
+    solutions: "Installed heavy-duty Simpson tie-downs and grade-60 structural steel boundary struts.",
+    outcome: "Completed all wood framing ahead of schedule, passing engineering inspection on first review.",
     goals: [
-      "Rigid truss-to-wall load anchoring",
-      "Clean exposed ceiling timber joints",
-      "Perfect ridge line alignment"
+      "Seismic shear walls alignment",
+      "Airtight building envelope wraps",
+      "Zero-deflection roof joists"
     ],
-    materials: ["Architectural grade timber trusses", "Heavy structural lag screws", "Steel roof connector plates"],
-    timeline: "3 Weeks"
-  },
-  {
-    id: "kitsilano-mixed-use-architectural-framing",
-    title: "The Kitsilano Mixed-Use Framing",
-    location: "Vancouver, BC",
-    serviceType: "Mixed-Use Wood & Steel Architectural Framing",
-    year: "2025",
-    sqFt: "14,200 SQ. FT.",
-    image: images.image23,
-    description: "Complex mixed-use wood-and-steel architectural framing, stair structures, and load integrations.",
-    challenges: "Directing complex load transfers from irregular architectural roof geometries down to structural foundations.",
-    solutions: "Employed heavy-timber frame columns combined with hidden steel joist hangers and tie-downs.",
-    outcome: "Achieved structural lock-up with zero layout errors, ensuring 100% plan compliance.",
-    goals: [
-      "Execute complex load distribution maps",
-      "Custom timber-to-steel connections",
-      "Plumb alignment of complex architectural headers"
-    ],
-    materials: ["Glued Laminated Timber (Glulam) columns", "Structural steel load anchors", "Structural fastening systems"],
+    materials: ["Premium kiln-dried studs", "Simpson structural tie-downs", "Engineered LVL beams"],
     timeline: "11 Weeks"
+  },
+  {
+    id: "lakeside-4-plex-vancouver",
+    title: "Lakeside 4 Plex, Vancouver",
+    location: "Vancouver, BC",
+    serviceType: "Multi-Family Residential Framing",
+    year: "2024",
+    sqFt: "9,800 SQ. FT.",
+    image: images.project5,
+    description: "Complete wood framing skeleton and envelope moisture barrier wraps for a premium multi-family 4-plex.",
+    challenges: "Extremely tight workspace parameters near lakeside soil and strict noise control rules.",
+    solutions: "Leveraged off-site component pre-fabrication and scheduled crane placements to prevent site congestion.",
+    outcome: "Erected the main 4-plex skeleton structure with zero delay, handing off ahead of schedule.",
+    goals: [
+      "Sound transmission class (STC) boundaries",
+      "Waterproof below-grade envelope",
+      "Rigid timber trusses setup"
+    ],
+    materials: ["Interlocking wood trusses", "High-performance house wrap", "Heavy structural fasteners"],
+    timeline: "13 Weeks"
+  },
+  {
+    id: "heritage-building-restoration-vancouver",
+    title: "Heritage Building Restoration, Vancouver",
+    location: "Vancouver, BC",
+    serviceType: "Structural Remediation & Timber Repair",
+    year: "2025",
+    sqFt: "8,200 SQ. FT.",
+    image: images.project6_1,
+    images: [images.project6_1, images.project6_2],
+    description: "Structural remediation and timber post-and-beam restoration of a historic building to bring it to modern code.",
+    challenges: "Shoring historic heavy load-bearing timber members without causing settlement cracks to heritage brickwork.",
+    solutions: "Transferred structural loads to temporary needle shoring columns while replacing degraded foundations.",
+    outcome: "Stabilized structural components perfectly, achieving 100% building code compliance.",
+    goals: [
+      "Preserve historic timber beams",
+      "Seismic foundation reinforcement",
+      "Zero structural movement during shoring"
+    ],
+    materials: ["Salvaged Douglas Fir timbers", "Structural epoxy grout", "Heavy-gauge steel connectors"],
+    timeline: "16 Weeks"
+  },
+  {
+    id: "tsawassen-townhouse-project",
+    title: "Tsawassen Townhouse Project",
+    location: "Delta/Tsawwassen, BC",
+    serviceType: "Multi-Family Townhouse Concrete & Framing",
+    year: "2025",
+    sqFt: "18,400 SQ. FT.",
+    image: "",
+    videos: [images.project7_1, images.project7_2],
+    description: "Heavy structural foundations, concrete formwork, and multi-family framing layout for a premium townhouse development.",
+    challenges: "Managing massive concrete pours and framing layout placements on low-bearing delta soils.",
+    solutions: "Poured double-reinforced thick slab concrete footings combined with high-grade timber load walls.",
+    outcome: "Created a solid structural base and frame layout, ready for mechanical/electrical rough-in.",
+    goals: [
+      "Low-bearing soil foundation slab",
+      "Monolithic concrete pours consistency",
+      "Accurate partition framing"
+    ],
+    materials: ["High-strength concrete mix", "Rebar cage reinforcement matrices", "Premium structural lumber"],
+    timeline: "18 Weeks"
   }
 ];
 
 export const Projects: React.FC = () => {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const [activeMediaIndices, setActiveMediaIndices] = useState<Record<string, number>>({});
 
   useEffect(() => {
     document.title = "Projects | Military Homes Construction Ltd.";
   }, []);
+
+  const handlePrevMedia = (projectId: string, mediaLength: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setActiveMediaIndices((prev) => {
+      const current = prev[projectId] || 0;
+      const next = current === 0 ? mediaLength - 1 : current - 1;
+      return { ...prev, [projectId]: next };
+    });
+  };
+
+  const handleNextMedia = (projectId: string, mediaLength: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setActiveMediaIndices((prev) => {
+      const current = prev[projectId] || 0;
+      const next = current === mediaLength - 1 ? 0 : current + 1;
+      return { ...prev, [projectId]: next };
+    });
+  };
 
   const toggleCaseStudy = (id: string) => {
     if (expandedProject === id) {
@@ -332,7 +319,7 @@ export const Projects: React.FC = () => {
                     0{index + 1}
                   </div>
 
-                  {/* Image Frame (Swaps side depending on index) */}
+                  {/* Image/Video Frame (Swaps side depending on index) */}
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -340,17 +327,87 @@ export const Projects: React.FC = () => {
                     variants={imageReveal}
                     className={`lg:col-span-6 relative group ${!isEven ? 'lg:order-last' : ''}`}
                   >
-                    <div className="relative aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover rounded-[4px] transition-transform duration-1000 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-[#240a40]/10 pointer-events-none" />
+                    <div className="relative aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2 flex items-center justify-center">
+                      {project.videos && project.videos.length > 0 ? (
+                        // Videos Slider
+                        <div className="relative w-full h-full">
+                          <video
+                            key={project.videos[activeMediaIndices[project.id] || 0]}
+                            src={project.videos[activeMediaIndices[project.id] || 0]}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-cover rounded-[4px]"
+                          />
+                          {project.videos.length > 1 && (
+                            <>
+                              <button
+                                onClick={(e) => handlePrevMedia(project.id, project.videos!.length, e)}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full border border-border shadow-sm cursor-pointer z-20 flex items-center justify-center"
+                                aria-label="Previous Video"
+                              >
+                                <ChevronLeft size={16} />
+                              </button>
+                              <button
+                                onClick={(e) => handleNextMedia(project.id, project.videos!.length, e)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full border border-border shadow-sm cursor-pointer z-20 flex items-center justify-center"
+                                aria-label="Next Video"
+                              >
+                                <ChevronRight size={16} />
+                              </button>
+                              {/* Slide Indicator */}
+                              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 bg-[#240a40]/80 px-3 py-1 rounded-full text-white text-[10px] font-bold">
+                                {(activeMediaIndices[project.id] || 0) + 1} / {project.videos.length}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      ) : project.images && project.images.length > 0 ? (
+                        // Images Slider
+                        <div className="relative w-full h-full">
+                          <img
+                            key={project.images[activeMediaIndices[project.id] || 0]}
+                            src={project.images[activeMediaIndices[project.id] || 0]}
+                            alt={project.title}
+                            className="w-full h-full object-cover rounded-[4px]"
+                          />
+                          {project.images.length > 1 && (
+                            <>
+                              <button
+                                onClick={(e) => handlePrevMedia(project.id, project.images!.length, e)}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full border border-border shadow-sm cursor-pointer z-20 flex items-center justify-center"
+                                aria-label="Previous Image"
+                              >
+                                <ChevronLeft size={16} />
+                              </button>
+                              <button
+                                onClick={(e) => handleNextMedia(project.id, project.images!.length, e)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full border border-border shadow-sm cursor-pointer z-20 flex items-center justify-center"
+                                aria-label="Next Image"
+                              >
+                                <ChevronRight size={16} />
+                              </button>
+                              {/* Slide Indicator */}
+                              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 bg-[#240a40]/80 px-3 py-1 rounded-full text-white text-[10px] font-bold">
+                                {(activeMediaIndices[project.id] || 0) + 1} / {project.images.length}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      ) : (
+                        // Single Image Fallback
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover rounded-[4px] transition-transform duration-1000 group-hover:scale-105"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-[#240a40]/10 pointer-events-none z-10" />
                     </div>
 
                     {/* Hover Overlay info card */}
-                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm border border-border px-4 py-2 rounded-[4px] shadow-sm font-body text-[10px] text-muted font-bold uppercase tracking-wider">
+                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm border border-border px-4 py-2 rounded-[4px] shadow-sm font-body text-[10px] text-muted font-bold uppercase tracking-wider z-20">
                       <MapPin size={10} className="inline mr-1 text-accent" /> {project.location}
                     </div>
                   </motion.div>
