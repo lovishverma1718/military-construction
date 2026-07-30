@@ -29,7 +29,7 @@ export const SERVICES: ServiceType[] = [
     id: "house-framing",
     title: "House Framing",
     description: "Architectural timber skeleton framing designed to bear loads with millimeter precision.",
-    image: images.image6,
+    image: images.house_framing_service,
     details: [
       "Heavy timber framing & wood construction",
       "Calculated load distributions & structural framing",
@@ -44,12 +44,12 @@ export const SERVICES: ServiceType[] = [
     ]
   },
   {
-    id: "custom-homes",
-    title: "Custom Homes",
-    description: "Masterfully crafted luxury residences built in British Columbia's finest neighborhoods.",
-    image: images.image16,
+    id: "custom-homes-framing",
+    title: "Custom Homes Framing",
+    description: "Masterfully crafted luxury residence framing built in British Columbia's finest neighborhoods.",
+    image: images.custom_homes_framing_service,
     details: [
-      "Turnkey architectural general contracting",
+      "Turnkey architectural timber framing",
       "High-end residential framing & luxury materials",
       "Collaborative project management with leading architects",
       "Sustainable structural design & energy compliance"
@@ -65,7 +65,7 @@ export const SERVICES: ServiceType[] = [
     id: "icf-foundations",
     title: "ICF Foundations",
     description: "Insulated Concrete Forms for advanced energy efficiency and unparalleled structural strength.",
-    image: images.image4,
+    image: images.icf_foundations_service,
     details: [
       "Insulated Concrete Form (ICF) design and installation",
       "High R-value thermal performance foundation walls",
@@ -77,6 +77,24 @@ export const SERVICES: ServiceType[] = [
       "Unparalleled sound-dampening acoustic performance",
       "Superior moisture, mold, and rot resistance",
       "Engineered concrete cores to resist lateral soil pressures"
+    ]
+  },
+  {
+    id: "heritage-building-restoration",
+    title: "Heritage Building Restoration",
+    description: "Structural remediation, timber post-and-beam restoration, and historical frame stabilization.",
+    image: images.heritage_restoration_service,
+    details: [
+      "Historical heavy timber preservation & post-and-beam repair",
+      "Needle shoring & temporary structural load transfer",
+      "Seismic reinforcement & foundation retrofitting",
+      "Heritage BC Building Code compliance & structural engineering"
+    ],
+    benefits: [
+      "Preserves original architectural heritage and character",
+      "Zero structural movement during heavy load-bearing shoring",
+      "Full compliance with provincial seismic & safety standards",
+      "Custom timber matching and structural epoxy stabilization"
     ]
   },
   {
@@ -98,21 +116,21 @@ export const SERVICES: ServiceType[] = [
     ]
   },
   {
-    id: "residential-construction",
-    title: "Residential Construction",
-    description: "Sophisticated multi-family homes and residential builds engineered to endure for generations.",
-    image: images.image21,
+    id: "townhouse-framing",
+    title: "Townhouse Framing",
+    description: "Sophisticated multi-family townhouse framing engineered to endure for generations.",
+    image: images.townhouse_framing_service,
     details: [
-      "Multi-story residential framing & finishing",
+      "Multi-family townhouse framing & timber assembly",
       "Vapor barrier, air sealing, and high-performance envelopes",
-      "Concrete flatwork and architectural landscaping structures",
-      "Interior structural detailing and spatial planning"
+      "Acoustic separation wall framing between units",
+      "Structural floor joist grids and roof trusses"
     ],
     benefits: [
-      "High-density structural options (duplex, triplex, laneway)",
+      "High-density multi-family townhouse framing solutions",
       "Strict moisture management and vapor barrier sealing",
-      "Durable architectural concrete surfaces",
-      "Engineered for acoustic isolation and thermal comfort"
+      "Enhanced sound isolation between unit firewalls",
+      "Engineered for rapid mobilization and site efficiency"
     ]
   },
   {

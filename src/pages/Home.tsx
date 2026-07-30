@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useInView } from 'framer-motion';
 import { Award, Clock, UserCheck } from 'lucide-react';
@@ -6,6 +6,10 @@ import { images } from '../constants/images';
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
 
 export const Home: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Military Homes Construction Ltd | Commercial & Multi-Family Framing BC';
+  }, []);
+
   // Progress loaders view triggers
   const progressRef = useRef(null);
   const isProgressInView = useInView(progressRef, { once: true, margin: "-100px" });

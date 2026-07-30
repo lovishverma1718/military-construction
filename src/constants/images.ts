@@ -30,6 +30,13 @@ import project7_1 from '../assets/project 7.mp4';
 import project7_2 from '../assets/project 7 (2).mp4';
 import mainVideo from '../assets/main front page video.mp4';
 
+// Service Images
+import house_framing_service from '../assets/images/house_framing_service.jpeg';
+import custom_homes_framing_service from '../assets/images/custom_homes_framing_service.jpeg';
+import heritage_restoration_service from '../assets/images/heritage_restoration_service.jpeg';
+import icf_foundations_service from '../assets/images/icf_foundations_service.jpeg';
+import townhouse_framing_service from '../assets/images/townhouse_framing_service.jpeg';
+
 export const images = {
   logo,
   image1,
@@ -60,6 +67,11 @@ export const images = {
   project7_1,
   project7_2,
   mainVideo,
+  house_framing_service,
+  custom_homes_framing_service,
+  heritage_restoration_service,
+  icf_foundations_service,
+  townhouse_framing_service,
   about_hero_bg: new URL('../assets/images/about_hero_bg.png', import.meta.url).href,
   about_hero_v2: new URL('../assets/images/about_hero_v2.png', import.meta.url).href,
   services_hero_bg: new URL('../assets/images/services_hero_bg.png', import.meta.url).href,

@@ -110,8 +110,8 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2">
                 <img
-                  src={images.image6}
-                  alt="Heavy Timber & CLT framing wood skeleton"
+                  src={images.house_framing_service}
+                  alt="House framing timber skeleton"
                   className="w-full h-full object-cover rounded-[4px] transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[#240a40]/10 pointer-events-none" />
@@ -182,9 +182,9 @@ export const Services: React.FC = () => {
       </section>
 
       {/* --------------------------------------------------------
-          SECTION 2: CUSTOM HOMES (DARK FEATURING BANNER)
+          SECTION 2: CUSTOM HOMES FRAMING (DARK FEATURING BANNER)
           -------------------------------------------------------- */}
-      <section id="custom-homes" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
+      <section id="custom-homes-framing" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
         {/* Soft radial glow */}
         <div className="absolute inset-0 soft-glow-radial" />
         
@@ -209,13 +209,13 @@ export const Services: React.FC = () => {
               </span>
               
               <h2 className="font-heading text-clamp-subheading font-bold text-white uppercase">
-                Custom Homes
+                Custom Homes Framing
               </h2>
 
               <div className="w-16 h-[2px] bg-accent" />
 
               <p className="font-body text-sm leading-relaxed text-white/80">
-                We manage turnkey general contracting, matching design intent with operational precision. From excavation through lock-up framing, our crews govern every phase with unmatched structural oversight.
+                We manage turnkey custom home framing, matching design intent with operational precision. From floor layout through lock-up framing, our crews govern every phase with unmatched structural oversight.
               </p>
 
               {/* Technical Specifications */}
@@ -240,7 +240,7 @@ export const Services: React.FC = () => {
               </div>
 
               <div className="mt-2">
-                <TactileButton to="/contact?service=custom-homes" label="Begin Consultation" light />
+                <TactileButton to="/contact?service=custom-homes-framing" label="Begin Consultation" light />
               </div>
             </motion.div>
 
@@ -254,7 +254,7 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-white/10 bg-black/40 p-2">
                 <img
-                  src={images.image16}
+                  src={images.custom_homes_framing_service}
                   alt="Custom home carpentry and framing details"
                   className="w-full h-full object-cover rounded-[4px]"
                 />
@@ -287,7 +287,7 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2">
                 <img
-                  src={images.image4}
+                  src={images.icf_foundations_service}
                   alt="ICF foundations concrete pours setup"
                   className="w-full h-full object-cover rounded-[4px]"
                 />
@@ -347,9 +347,9 @@ export const Services: React.FC = () => {
       </section>
 
       {/* --------------------------------------------------------
-          SECTION 4: FOUNDATION & RENOVATION
+          SECTION 4: HERITAGE BUILDING RESTORATION (DARK FEATURING BANNER)
           -------------------------------------------------------- */}
-      <section id="foundation-renovation" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
+      <section id="heritage-building-restoration" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
         {/* Soft radial glow */}
         <div className="absolute inset-0 soft-glow-radial" />
         
@@ -370,42 +370,42 @@ export const Services: React.FC = () => {
               className="lg:col-span-6 flex flex-col gap-6 lg:order-first"
             >
               <span className="font-body text-xs font-extrabold tracking-widest text-accent uppercase">
-                CORE PILLAR // STRUCTURAL RENOVATIONS
+                CORE PILLAR // HISTORIC RESTORATION
               </span>
               
               <h2 className="font-heading text-clamp-subheading font-bold text-white uppercase">
-                Foundation & Renovation
+                Heritage Building Restoration
               </h2>
 
               <div className="w-16 h-[2px] bg-accent" />
 
               <p className="font-body text-sm leading-relaxed text-white/80">
-                Remediating older foundations requires precision structural shoring. We lower basement slabs, install underpinning piers, and execute seismic structural connections to elevate classic heritage frames to modern BC codes.
+                Restoring historic structures requires delicate structural shoring and heavy timber post-and-beam rehabilitation. We safely transfer loads during foundation retrofits while preserving BC's architectural heritage.
               </p>
 
               {/* Technical Specifications */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                 <div className="p-5 bg-white/5 border border-white/10 rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Remediation Core</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Restoration Scope</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-white/70">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Underpinning footing piers</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Basement ceiling lowering</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural framing shoring</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Heavy timber beam preservation</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Temporary needle shoring systems</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Seismic foundation retrofits</li>
                   </ul>
                 </div>
 
                 <div className="p-5 bg-white/5 border border-white/10 rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Seismic Measures</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Engineering Standards</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-white/70">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural tie anchorages</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Foundation weeping tile rehab</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Concrete crack injections</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Zero structural movement tolerance</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural epoxy timber repairs</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Heritage BC Code compliance</li>
                   </ul>
                 </div>
               </div>
 
               <div className="mt-2">
-                <TactileButton to="/contact?service=foundation-renovation" label="Discuss Structural Remodeling" light />
+                <TactileButton to="/contact?service=heritage-building-restoration" label="Inquire Heritage Restoration" light />
               </div>
             </motion.div>
 
@@ -419,8 +419,8 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-white/10 bg-black/40 p-2">
                 <img
-                  src={images.image2}
-                  alt="Foundation shoring and underpinning remediation"
+                  src={images.heritage_restoration_service}
+                  alt="Heritage building restoration timber post and beam"
                   className="w-full h-full object-cover rounded-[4px]"
                 />
               </div>
@@ -431,9 +431,9 @@ export const Services: React.FC = () => {
       </section>
 
       {/* --------------------------------------------------------
-          SECTION 5: RESIDENTIAL CONSTRUCTION
+          SECTION 5: FOUNDATION & RENOVATION
           -------------------------------------------------------- */}
-      <section id="residential-construction" className="relative py-28 border-b border-border bg-white bg-blueprint-grid scroll-mt-[80px]">
+      <section id="foundation-renovation" className="relative py-28 border-b border-border bg-white bg-blueprint-grid scroll-mt-[80px]">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative">
             
@@ -452,8 +452,8 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2">
                 <img
-                  src={images.image21}
-                  alt="Multi-family framing structural framework"
+                  src={images.image2}
+                  alt="Foundation shoring and underpinning remediation"
                   className="w-full h-full object-cover rounded-[4px]"
                 />
               </div>
@@ -468,42 +468,42 @@ export const Services: React.FC = () => {
               className="lg:col-span-6 flex flex-col gap-6"
             >
               <span className="font-body text-xs font-extrabold tracking-widest text-accent uppercase">
-                CORE PILLAR // MULTI-FAMILY FRAMING
+                CORE PILLAR // STRUCTURAL RENOVATIONS
               </span>
               
               <h2 className="font-heading text-clamp-subheading font-bold text-primary uppercase">
-                Residential Construction
+                Foundation & Renovation
               </h2>
 
               <div className="w-16 h-[2px] bg-accent" />
 
               <p className="font-body text-sm leading-relaxed text-muted">
-                From luxury townhomes to multi-family duplex frames, our crews construct enduring timber frameworks. We control site logisitcs to ensure moisture-tight walls, proper insulation spaces, and zero air gaps.
+                Remediating older foundations requires precision structural shoring. We lower basement slabs, install underpinning piers, and execute seismic structural connections to elevate classic heritage frames to modern BC codes.
               </p>
 
               {/* Technical Specifications */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                 <div className="p-5 bg-secondary-bg border border-border rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Scope Parameters</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Remediation Core</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-muted">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Duplex & townhouse framing</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Moisture boundary envelopes</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural floor joist grids</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Underpinning footing piers</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Basement ceiling lowering</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural framing shoring</li>
                   </ul>
                 </div>
 
                 <div className="p-5 bg-secondary-bg border border-border rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Quality Standards</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Seismic Measures</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-muted">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Kiln-dried dimensional studs</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Strict wall plumb coordinates</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Subfloor glue & screw setups</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural tie anchorages</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Foundation weeping tile rehab</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Concrete crack injections</li>
                   </ul>
                 </div>
               </div>
 
               <div className="mt-2">
-                <TactileButton to="/contact?service=residential-construction" label="Inquire Residential Pricing" />
+                <TactileButton to="/contact?service=foundation-renovation" label="Discuss Structural Remodeling" />
               </div>
             </motion.div>
 
@@ -512,9 +512,9 @@ export const Services: React.FC = () => {
       </section>
 
       {/* --------------------------------------------------------
-          SECTION 6: COMMERCIAL CONSTRUCTION
+          SECTION 6: TOWNHOUSE FRAMING (DARK FEATURING BANNER)
           -------------------------------------------------------- */}
-      <section id="commercial-construction" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
+      <section id="townhouse-framing" className="relative py-28 border-b border-border bg-[#111111] text-white bg-blueprint-grid scroll-mt-[80px]">
         {/* Soft radial glow */}
         <div className="absolute inset-0 soft-glow-radial" />
         
@@ -535,42 +535,42 @@ export const Services: React.FC = () => {
               className="lg:col-span-6 flex flex-col gap-6 lg:order-first"
             >
               <span className="font-body text-xs font-extrabold tracking-widest text-accent uppercase">
-                CORE PILLAR // COMMERCIAL FOUNDATIONS
+                CORE PILLAR // MULTI-FAMILY TOWNHOUSE FRAMING
               </span>
               
               <h2 className="font-heading text-clamp-subheading font-bold text-white uppercase">
-                Commercial Construction
+                Townhouse Framing
               </h2>
 
               <div className="w-16 h-[2px] bg-accent" />
 
               <p className="font-body text-sm leading-relaxed text-white/80">
-                We handle heavy wood framing, structural concrete columns, and floor slabs for light-commercial structures. We coordinate concrete pours and frame setups with commercial subtrades to keep projects fully on schedule.
+                From luxury townhome developments to multi-family residential frames, our crews construct enduring timber frameworks. We control site logistics to ensure moisture-tight envelopes, acoustic firewall separation, and zero air gaps.
               </p>
 
               {/* Technical Specifications */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                 <div className="p-5 bg-white/5 border border-white/10 rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Build Capacity</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Scope Parameters</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-white/70">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Concrete column formwork</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Light steel studs partitions</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Load-bearing floor slab pours</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Multi-family townhouse framing</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Acoustic sound wall separation</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Structural floor joist grids</li>
                   </ul>
                 </div>
 
                 <div className="p-5 bg-white/5 border border-white/10 rounded-[4px]">
-                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Safety & Codes</h4>
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Quality Standards</h4>
                   <ul className="flex flex-col gap-2 font-body text-xs text-white/70">
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Underparkade height clearances</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Strict commercial load values</li>
-                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Synchronized site logistics</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Kiln-dried dimensional studs</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Strict wall plumb coordinates</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Subfloor glue & screw setups</li>
                   </ul>
                 </div>
               </div>
 
               <div className="mt-2">
-                <TactileButton to="/contact?service=commercial-construction" label="Inquire Commercial Spec Quote" light />
+                <TactileButton to="/contact?service=townhouse-framing" label="Inquire Townhouse Pricing" light />
               </div>
             </motion.div>
 
@@ -584,10 +584,91 @@ export const Services: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-white/10 bg-black/40 p-2">
                 <img
+                  src={images.townhouse_framing_service}
+                  alt="Multi-family townhouse framing structural framework"
+                  className="w-full h-full object-cover rounded-[4px]"
+                />
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --------------------------------------------------------
+          SECTION 7: COMMERCIAL CONSTRUCTION
+          -------------------------------------------------------- */}
+      <section id="commercial-construction" className="relative py-28 border-b border-border bg-white bg-blueprint-grid scroll-mt-[80px]">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative">
+            
+            {/* Translucent background number */}
+            <div className="absolute -top-16 right-10 font-heading text-[18vw] font-black text-[#7f00ff]/5 leading-none select-none pointer-events-none">
+              07
+            </div>
+
+            {/* Left Image: Square 1:1 Aspect Ratio */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={imageReveal}
+              className="lg:col-span-6 relative group"
+            >
+              <div className="relative w-full aspect-square rounded-[4px] overflow-hidden shadow-premium border border-border bg-white p-2">
+                <img
                   src={images.image22}
                   alt="Heavy-duty commercial framing and slab concrete"
                   className="w-full h-full object-cover rounded-[4px]"
                 />
+              </div>
+            </motion.div>
+
+            {/* Right Content */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeUp}
+              className="lg:col-span-6 flex flex-col gap-6"
+            >
+              <span className="font-body text-xs font-extrabold tracking-widest text-accent uppercase">
+                CORE PILLAR // COMMERCIAL FOUNDATIONS
+              </span>
+              
+              <h2 className="font-heading text-clamp-subheading font-bold text-primary uppercase">
+                Commercial Construction
+              </h2>
+
+              <div className="w-16 h-[2px] bg-accent" />
+
+              <p className="font-body text-sm leading-relaxed text-muted">
+                We handle heavy wood framing, structural concrete columns, and floor slabs for light-commercial structures. We coordinate concrete pours and frame setups with commercial subtrades to keep projects fully on schedule.
+              </p>
+
+              {/* Technical Specifications */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div className="p-5 bg-secondary-bg border border-border rounded-[4px]">
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Build Capacity</h4>
+                  <ul className="flex flex-col gap-2 font-body text-xs text-muted">
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Concrete column formwork</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Light steel studs partitions</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Load-bearing floor slab pours</li>
+                  </ul>
+                </div>
+
+                <div className="p-5 bg-secondary-bg border border-border rounded-[4px]">
+                  <h4 className="font-body text-xs font-bold text-accent uppercase tracking-wider mb-2">Safety & Codes</h4>
+                  <ul className="flex flex-col gap-2 font-body text-xs text-muted">
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Underparkade height clearances</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Strict commercial load values</li>
+                    <li className="flex items-center gap-2"><Check size={12} className="text-accent" /> Synchronized site logistics</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-2">
+                <TactileButton to="/contact?service=commercial-construction" label="Inquire Commercial Spec Quote" />
               </div>
             </motion.div>
 
